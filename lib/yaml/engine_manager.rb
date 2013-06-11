@@ -45,6 +45,7 @@ module YAML
   ##
   # Allows changing the current YAML engine.  See YAML for details.
 
+  remove_const :ENGINE if const_defined? :ENGINE
   ENGINE = YAML::EngineManager.new
 end
 
@@ -66,10 +67,12 @@ else
 end
 
 module Syck
+  remove_const :ENGINE if const_defined? :ENGINE
   ENGINE = YAML::ENGINE
 end
 
 module Psych
+  remove_const :ENGINE if const_defined? :ENGINE
   ENGINE = YAML::ENGINE
 end
 
